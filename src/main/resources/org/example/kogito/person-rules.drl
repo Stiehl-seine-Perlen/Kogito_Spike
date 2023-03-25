@@ -1,0 +1,14 @@
+package org.example.kogito;
+
+unit PersonUnit;
+
+import org.example.kogito.model.Person;
+
+rule "Is adult"
+when
+    $person: /person[age() > 18 && adult() == false]
+then
+    modify($person) {
+    	adult(true)
+    };
+end
